@@ -97,4 +97,5 @@ var drawChart=function(n2016)
         .attr("fill","black")
         .attr("font-size", 14)
         .attr("font-family", "sans-serif");
+  console.log("Did work");
 }
