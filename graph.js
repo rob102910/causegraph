@@ -86,7 +86,7 @@ var drawChart=function(n2016)
         .enter()
         .append("text")
         .text(function(d){
-          return "green";
+          return d.country;
         })
         .attr("x",function(d,i){
           return width-85;
@@ -97,5 +97,4 @@ var drawChart=function(n2016)
         .attr("fill","black")
         .attr("font-size", 14)
         .attr("font-family", "sans-serif");
-  console.log("Did work");
 }
