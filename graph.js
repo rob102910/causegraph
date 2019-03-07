@@ -35,7 +35,7 @@ var drawChart=function(n2016)
      })
      .attr("y",function(d,i){
        //return height-d.num;
-       return height-d.Happiness*20;
+       return height-(d.Happiness*20);
      })
      .attr("width",barWidth-4)
      .attr("height",function(d){
@@ -57,7 +57,7 @@ var drawChart=function(n2016)
        return i*barWidth+barWidth/2-4;
      })
      .attr("y",function(d,i){
-       return height-d.Happiness*20+15;
+       return height-((d.Happiness*20)+15);
      })
      .attr("fill","white")
      .attr("font-size", 14)
@@ -74,7 +74,7 @@ var drawChart=function(n2016)
            .append("rect")
            .attr("x",width-100)
            .attr("y",function(d,i){
-             return i*(100/7)+30;
+             return (i*(100/7)+30);
            })
            .attr("height",10)
            .attr("width",10)
@@ -92,7 +92,7 @@ var drawChart=function(n2016)
           return width-85;
         })
         .attr("y",function(d,i){
-          return i*(100/7)+40;
+          return (i*(100/7)+40);
         })
         .attr("fill","black")
         .attr("font-size", 14)
