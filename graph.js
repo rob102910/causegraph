@@ -1,6 +1,6 @@
 var csv=function()
 {
-var datacsv=d3.csv("colordata.csv")
+var datacsv=d3.csv("n2016.csv")
 datacsv.then(function(data)
 {
   console.log("data",data);
@@ -13,11 +13,11 @@ function(err)
 document.getElementById("button2").disabled = true;
 };
 
-var drawChart=function(colordata)
+var drawChart=function(n2016)
 {
   var width=400;
   var height=300;
-  var barWidth=width/colordata.length;
+  var barWidth=width/n2016.length;
   var svg=d3.select("div").append("svg")
             .attr("width",width)
             .attr("height",height)
@@ -25,7 +25,7 @@ var drawChart=function(colordata)
             .style("background-color","#F7F7F6");
 
   svg.selectAll("rect")
-     .data(colordata)
+     .data(n2016)
      .enter()
      .append("rect")
      .attr("x",function(d,i){
@@ -45,7 +45,7 @@ var drawChart=function(colordata)
      .style("padding",2);
 
   svg.selectAll("text")
-     .data(colordata)
+     .data(n2016)
      .enter()
      .append("text")
      .text(function(d){
@@ -67,12 +67,12 @@ var drawChart=function(colordata)
                   .attr("height", 100)
                   .attr("width", 100);
      legend.selectAll("rect")
-           .data(colordata)
+           .data(n2016)
            .enter()
            .append("rect")
            .attr("x",width-100)
            .attr("y",function(d,i){
-             return i*(100/colordata.length)+30;
+             return i*(100/n2016.length)+30;
            })
            .attr("height",10)
            .attr("width",10)
@@ -80,7 +80,7 @@ var drawChart=function(colordata)
              return d.color;
            });
      legend.selectAll("text")
-        .data(colordata)
+        .data(n2016)
         .enter()
         .append("text")
         .text(function(d){
@@ -90,7 +90,7 @@ var drawChart=function(colordata)
           return width-85;
         })
         .attr("y",function(d,i){
-          return i*(100/colordata.length)+40;
+          return i*(100/n2016.length)+40;
         })
         .attr("fill","black")
         .attr("font-size", 14)
