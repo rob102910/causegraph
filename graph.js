@@ -39,7 +39,7 @@ var drawChart=function(n2016)
      })
      .attr("width",barWidth-4)
      .attr("height",function(d){
-       return d.Happiness*20;
+       return (d.Happiness*20);
      })
      .attr("fill",function(d){
        return "red";
