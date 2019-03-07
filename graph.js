@@ -20,7 +20,7 @@ var drawChart=function(n2016)
   var width=400;
   var height=300;
   var barWidth=width/n2016.length;
-  var svg=d3.select("div").append("svg")
+  var svg=d3.select("body").append("svg")
             .attr("width",width)
             .attr("height",height)
             .style("margin-right",40)
