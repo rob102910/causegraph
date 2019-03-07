@@ -35,11 +35,11 @@ var drawChart=function(n2016)
      })
      .attr("y",function(d,i){
        //return height-d.num;
-       return height-d.happiness*20;
+       return height-d.Happiness*20;
      })
      .attr("width",barWidth-4)
      .attr("height",function(d){
-       return d.happiness*20;
+       return d.Happiness*20;
      })
      .attr("fill",function(d){
        return "red";
@@ -51,13 +51,13 @@ var drawChart=function(n2016)
      .enter()
      .append("text")
      .text(function(d){
-       return d.happiness;
+       return d.Happiness;
      })
      .attr("x",function(d,i){
        return i*barWidth+barWidth/2-4;
      })
      .attr("y",function(d,i){
-       return height-d.happiness*20+15;
+       return height-d.Happiness*20+15;
      })
      .attr("fill","white")
      .attr("font-size", 14)
@@ -86,7 +86,7 @@ var drawChart=function(n2016)
         .enter()
         .append("text")
         .text(function(d){
-          return d.country;
+          return d.Country;
         })
         .attr("x",function(d,i){
           return width-85;
