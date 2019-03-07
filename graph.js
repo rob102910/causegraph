@@ -74,7 +74,7 @@ var drawChart=function(n2016)
            .append("rect")
            .attr("x",width-100)
            .attr("y",function(d,i){
-             return i*(100/n2016.length)+30;
+             return i*(100/7)+30;
            })
            .attr("height",10)
            .attr("width",10)
@@ -92,7 +92,7 @@ var drawChart=function(n2016)
           return width-85;
         })
         .attr("y",function(d,i){
-          return i*(100/n2016.length)+40;
+          return i*(100/7)+40;
         })
         .attr("fill","black")
         .attr("font-size", 14)
