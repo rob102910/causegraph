@@ -35,7 +35,7 @@ var drawChart=function(n2016)
      })
      .attr("y",function(d,i){
        //return height-d.num;
-       return height-(d.Happiness*20);
+       return height-d.Happiness*20;
      })
      .attr("width",barWidth-4)
      .attr("height",function(d){
@@ -57,7 +57,7 @@ var drawChart=function(n2016)
        return i*barWidth+barWidth/2-4;
      })
      .attr("y",function(d,i){
-       return height-((d.Happiness*20)+15);
+       return height-d.Happiness*20+15);
      })
      .attr("fill","white")
      .attr("font-size", 14)
