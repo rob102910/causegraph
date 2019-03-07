@@ -40,7 +40,7 @@ var drawChart=function(n2016)
        return d.num*20;
      })
      .attr("fill",function(d){
-       return d.color;
+       return red;
      })
      .style("padding",2);
 
@@ -77,14 +77,14 @@ var drawChart=function(n2016)
            .attr("height",10)
            .attr("width",10)
            .attr("fill",function(d){
-             return d.color;
+             return blue;
            });
      legend.selectAll("text")
         .data(n2016)
         .enter()
         .append("text")
         .text(function(d){
-          return d.color;
+          return green;
         })
         .attr("x",function(d,i){
           return width-85;
