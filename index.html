@@ -1,99 +1,51 @@
-var csv=function()
-{
-var datacsv=d3.csv("colordata.csv")
-datacsv.then(function(data)
-{
-  console.log("data",data);
-  drawChart(data);
-},
-function(err)
-{
-  console.log(err);
-})
-document.getElementById("button2").disabled = true;
-};
 
-var drawChart=function(colordata)
-{
-  var width=400;
-  var height=300;
-  var barWidth=width/colordata.length;
-  var svg=d3.select("div").append("svg")
-            .attr("width",width)
-            .attr("height",height)
-            .style("margin-right",40)
-            .style("background-color","#F7F7F6");
-
-  svg.selectAll("rect")
-     .data(colordata)
-     .enter()
-     .append("rect")
-     .attr("x",function(d,i){
-       return i*barWidth+2;
-     })
-     .attr("y",function(d,i){
-       //return height-d.num;
-       return height-d.num*20;
-     })
-     .attr("width",barWidth-4)
-     .attr("height",function(d){
-       return d.num*20;
-     })
-     .attr("fill",function(d){
-       return d.color;
-     })
-     .style("padding",2);
-
-  svg.selectAll("text")
-     .data(colordata)
-     .enter()
-     .append("text")
-     .text(function(d){
-       return d.num;
-     })
-     .attr("x",function(d,i){
-       return i*barWidth+barWidth/2-4;
-     })
-     .attr("y",function(d,i){
-       return height-d.num*20+15;
-     })
-     .attr("fill","white")
-     .attr("font-size", 14)
-     .attr("font-family", "sans-serif");
-
-     legend=svg.append("g")
-                  .attr("x",width-65)
-                  .attr("y",25)
-                  .attr("height", 100)
-                  .attr("width", 100);
-     legend.selectAll("rect")
-           .data(colordata)
-           .enter()
-           .append("rect")
-           .attr("x",width-100)
-           .attr("y",function(d,i){
-             return i*(100/colordata.length)+30;
-           })
-           .attr("height",10)
-           .attr("width",10)
-           .attr("fill",function(d){
-             return d.color;
-           });
-     legend.selectAll("text")
-        .data(colordata)
-        .enter()
-        .append("text")
-        .text(function(d){
-          return d.color;
-        })
-        .attr("x",function(d,i){
-          return width-85;
-        })
-        .attr("y",function(d,i){
-          return i*(100/colordata.length)+40;
-        })
-        .attr("fill","black")
-        .attr("font-size", 14)
-        .attr("font-family", "sans-serif");
-}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bar Chart of colors</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+    body{
+      background-color: #EDF0EC;
+      color:#121314;
+    }
+    p{
+      font-size: 20px;
+    }
+    button{
+      font-size: 15px;
+      font-style:normal;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Bar Chart of Color</h1>
+    <p> For this lab, we found out that the code that draws the two diagrams totally overlaps.
+      <br/>We can just use one single function called drawChart( ) which will take the data from json file or csv file as input to draw the two diagrams.
+      <br/>Here are the pesudo code for how to draw the diagrams using different kinds of files.
+      <br/><br/>First use the d3 to select the data:
+      <br/><i>var dataP=d3.json/csv("colordata.json/csv");</i>
+      <br/><br/>Then use the data we select to call the drawChart( ) function:
+      <br/><i>dataP.then(function(data)
+      <br/>{
+        <br/>drawChart(data);
+      <br/>},
+      <br/>function(err)
+      <br/>{
+        <br/>console.log(err);
+      <br/>})</i>
+      <br/>We only need to change the <i>var dataP</i> to draw two diagrams from different kinds of files. And you can take a closer look at our <a href="graph1.js">js file.</a>
+      <br/><br/>In order to distinguish the difference between the graph created by
+      <a href="colordata.json">json file</a> and <a href="colordata.csv">csv file</a>, we made a little change to the data.
+      <br/>As you can see by clicking the links for those two data, the json file has blue as the first color, but csv file has red as the first color.
+      <br/>Try clicking the buttons below to create those two diagrams.
+    </p>
+    <button onclick=json() type="button" id="button1">Try json file!</button>
+    <button onclick=csv() type="button" id="button2">Try csv file!</button>
+    <div/>
+    <script type="text/javascript" src="graph1.js">
+      </script>
+  </body>
+</html>
 
