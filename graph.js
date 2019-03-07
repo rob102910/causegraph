@@ -8,6 +8,7 @@ datacsv.then(function(data)
 },
 function(err)
 {
+  console.log("Didn't work");
   console.log(err);
 })
 document.getElementById("button2").disabled = true;
