@@ -35,14 +35,14 @@ var drawChart=function(n2016)
      })
      .attr("y",function(d,i){
        //return height-d.num;
-       return height-d.num*20;
+       return height-d.happiness*20;
      })
      .attr("width",barWidth-4)
      .attr("height",function(d){
-       return d.num*20;
+       return d.happiness*20;
      })
      .attr("fill",function(d){
-       return red;
+       return "red";
      })
      .style("padding",2);
 
@@ -51,13 +51,13 @@ var drawChart=function(n2016)
      .enter()
      .append("text")
      .text(function(d){
-       return d.num;
+       return d.happiness;
      })
      .attr("x",function(d,i){
        return i*barWidth+barWidth/2-4;
      })
      .attr("y",function(d,i){
-       return height-d.num*20+15;
+       return height-d.happiness*20+15;
      })
      .attr("fill","white")
      .attr("font-size", 14)
@@ -79,14 +79,14 @@ var drawChart=function(n2016)
            .attr("height",10)
            .attr("width",10)
            .attr("fill",function(d){
-             return blue;
+             return "blue";
            });
      legend.selectAll("text")
         .data(n2016)
         .enter()
         .append("text")
         .text(function(d){
-          return green;
+          return "green";
         })
         .attr("x",function(d,i){
           return width-85;
