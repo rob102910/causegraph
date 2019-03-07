@@ -1,6 +1,6 @@
 var csv=function()
 {
-var datacsv=d3.csv("n2016.csv")
+var datacsv=d3.csv("n2016.csv");
 datacsv.then(function(data)
 {
   console.log("data",data);
